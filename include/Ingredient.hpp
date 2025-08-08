@@ -1,22 +1,23 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <string>
 
 #pragma once
-#include <string>
 
 class Ingredient {
 private:
-    string name;
+    std::string name;
     int quantity;
-    string unit;
+    std::string unit;
 
 public:
-    Ingredient(string name, int quantity, string unit);
+    // Constructors
+    Ingredient(const std::string& name, int quantity, const std::string& unit);
+    Ingredient(); // Default constructor
 
+    // Methods
     void add(int amount);
     bool consume(int amount); // returns false if insufficient
     int getQuantity() const;
     std::string getUnit() const;
     const std::string& getName() const;
-    
+
 };

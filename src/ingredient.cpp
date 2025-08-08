@@ -1,24 +1,32 @@
 #include "Ingredient.hpp"
-using namespace std;
 
-Ingredient::Ingredient(string name, int quantity, string unit){     // Constructor to initialize the ingredient with a name, quantity, and unit
+// Constructor with const references (matching header declaration)
+Ingredient::Ingredient(const std::string& name, int quantity, const std::string& unit) {
     this->name = name;
     this->quantity = quantity;
     this->unit = unit;
 }
-void Ingredient::add(int amount){
-    quantity+=amount;
+
+// Default constructor
+Ingredient::Ingredient() {
+    name = "";
+    quantity = 0;
+    unit = "";
 }
 
-bool Ingredient::consume(int amount){
-    if(quantity >=amount){
+void Ingredient::add(int amount) {
+    quantity += amount;
+}
+
+bool Ingredient::consume(int amount) {
+    if (quantity >= amount) {
         quantity -= amount;
         return true;
     }
-    return false; //insufficient quantity
+    return false; // insufficient quantity
 }
 
-const string& Ingredient::getName() const {
+const std::string& Ingredient::getName() const {
     return name;
 }
 
@@ -26,8 +34,6 @@ int Ingredient::getQuantity() const {
     return quantity;
 }
 
-string Ingredient::getUnit() const {
+std::string Ingredient::getUnit() const {
     return unit;
 }
-
-
